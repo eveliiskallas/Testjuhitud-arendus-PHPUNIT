@@ -21,6 +21,17 @@ class ReceiptTest extends TestCase {
             'When summing the total should equal 15' // väljastab sõnumi, kui test kukub läbi
         );
     }
+
+    public function testTax() {  // loome uue meetodi
+        $inputAmount = 10.00;  // loome sisendi, mis on 10 rahaühikut.
+        $taxInput = 0.10; // see on maksu protsent
+        $output = $this->Receipt->tax($inputAmount, $taxInput); // kutsume selle meetodi Receipt objektis välja.
+        $this->assertEquals(
+            1.00,
+            $output,
+            'The tax calculation should equal 1.00'
+        );
+    }
 }
 
 //    public function testTotal() {
